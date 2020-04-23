@@ -4,4 +4,4 @@
 
 [Play Game](https://turkaytunc.itch.io/racon)
 
-![Racon](https://github.com/turkaytunc/Racon/tree/master/StaticFiles/Racon.png)
+![Racon](https://github.com/turkaytunc/Racon/blob/master/StaticFiles/Racon.png)
