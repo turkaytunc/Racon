@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float timeToShoot;
 
     private bool isTripleShoot;
+    private bool isHealthGiven;
 
     #region Player Position Variables
     private float minPlayerXPos;
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
         laserOffset = .5f;
         PlayerMovementBoundaries();
         gameManager.SetPlayerHealth(this.health);
+
     }
 
 
@@ -44,6 +46,11 @@ public class Player : MonoBehaviour
     {
         CalculatePlayerShipMovement();
         ShootLaser();
+        if(gameManager.GetScore() >= 500 && !isHealthGiven)
+        {
+            health += 200;
+            isHealthGiven = true;
+        }
     }
 
     private void ShootLaser()
@@ -127,4 +134,5 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }
