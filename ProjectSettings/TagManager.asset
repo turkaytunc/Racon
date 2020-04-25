@@ -8,6 +8,7 @@ TagManager:
   - PlayerShip
   - GameManager
   - Laser
+  - EnemyLaser
   layers:
   - Default
   - TransparentFX
