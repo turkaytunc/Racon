@@ -10,6 +10,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float fireRate = 2f;
     [SerializeField] private AudioClip explosionSound;
 
+    [Header("Item Drop")]
+    [SerializeField] private GameObject powerUpPrefab;
+    [SerializeField] private float powerUpChance;
+
     private GameManager gameManager;
 
     private float setShootTimer;
@@ -18,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+
         laserOffset = -1f;
         setShootTimer = 1 / fireRate;
     }
@@ -49,6 +54,10 @@ public class Enemy : MonoBehaviour
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            if(Random.Range(powerUpChance, 10f) > 7)
+            {
+                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+            }
 
             gameManager.SetScore(this.scoreAmount);
             Destroy(gameObject);
