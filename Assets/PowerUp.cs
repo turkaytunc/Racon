@@ -8,7 +8,7 @@ public class PowerUp : MonoBehaviour
     {
         if(collision.tag == "PlayerShip")
         {
-            collision.transform.GetComponent<Player>().SetTripleShootActive();
+            collision.transform.GetComponent<Player>().SetTripleShoot(true);
 
             Destroy(gameObject);
         }

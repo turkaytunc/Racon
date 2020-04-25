@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private float moveSpeed;
     private float laserOffset;
     private float timeToShoot;
+    private float tripleShotDuration = 5f;
 
     private bool isTripleShoot;
     private bool isHealthGiven;
@@ -46,7 +47,7 @@ public class Player : MonoBehaviour
     {
         CalculatePlayerShipMovement();
         ShootLaser();
-        if(gameManager.GetScore() >= 500 && !isHealthGiven)
+        if(gameManager.GetScore() >= 2500 && !isHealthGiven)
         {
             health += 200;
             isHealthGiven = true;
@@ -56,6 +57,12 @@ public class Player : MonoBehaviour
     private void ShootLaser()
     {
         timeToShoot -= Time.deltaTime;
+        tripleShotDuration -= Time.deltaTime;
+
+        if (tripleShotDuration < 0)
+        {
+            SetTripleShoot(false);
+        }
 
         if (Input.GetButton("Fire1") && timeToShoot <= 0)
         {
@@ -76,9 +83,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetTripleShootActive()
+    public void SetTripleShoot(bool shot)
     {
-        this.isTripleShoot = true;
+        this.isTripleShoot = shot;
+        tripleShotDuration = 5f;
     }
 
     private void PlayerMovementBoundaries()
