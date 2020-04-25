@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            if(Random.Range(powerUpChance, 10f) > 7)
+            if(Random.Range(powerUpChance, 100f) > 80)
             {
                 Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
             }

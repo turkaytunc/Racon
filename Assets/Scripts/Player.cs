@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     private float laserOffset;
     private float timeToShoot;
 
+    private bool isTripleShoot;
+
     #region Player Position Variables
     private float minPlayerXPos;
     private float maxPlayerXPos;
@@ -51,10 +53,25 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Fire1") && timeToShoot <= 0)
         {
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z);
-            Instantiate(laserPrefab, laserPosition, Quaternion.identity);
+            if (!isTripleShoot)
+            {
+                Instantiate(laserPrefab, laserPosition, Quaternion.identity);
+                
+            }
+            else
+            {
+                Instantiate(laserPrefab, laserPosition, Quaternion.identity);
+                Instantiate(laserPrefab, laserPosition + new Vector3(0.5f, 0, 0), Quaternion.identity);
+                Instantiate(laserPrefab, laserPosition + new Vector3(-0.5f, 0, 0), Quaternion.identity);
+            }
             AudioSource.PlayClipAtPoint(laserSound, Camera.main.transform.position, 0.3f);
             timeToShoot = 1 / fireRate;
         }
+    }
+
+    public void SetTripleShootActive()
+    {
+        this.isTripleShoot = true;
     }
 
     private void PlayerMovementBoundaries()
@@ -89,8 +106,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int damage = collision.gameObject.GetComponent<DamageDealer>().GetDamage();
-        health -= damage;
+       if(collision.tag == "EnemyShip")
+        {
+            int damage = collision.gameObject.GetComponent<DamageDealer>().GetDamage();
+            health -= damage;
+        }
 
         gameManager.SetPlayerHealth(this.health);
 

@@ -133,7 +133,7 @@ MonoBehaviour:
   fireRate: 0.25
   explosionSound: {fileID: 8300000, guid: 7f9b73081a324b044a7e465be6876108, type: 3}
   powerUpPrefab: {fileID: 2028782144035099813, guid: 9753379b057e3b54a96a41d1072cf833, type: 3}
-  powerUpChance: 0
+  powerUpChance: 60
 --- !u!50 &2050915250
 Rigidbody2D:
   serializedVersion: 4
