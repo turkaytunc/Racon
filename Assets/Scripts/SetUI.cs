@@ -20,7 +20,7 @@ public class SetUI : MonoBehaviour
         if (gameManager.IsGameOver == false)
         {
             playerHealthText = transform.Find("PlayerHealthText").GetComponent<TextMeshProUGUI>();
-            playerHealthText.text = gameManager.GetPlayerHealth().ToString();
+            playerHealthText.text = gameManager.GetPlayerHealth() <=0 ? "0" : gameManager.GetPlayerHealth().ToString();
         }
     }
 
