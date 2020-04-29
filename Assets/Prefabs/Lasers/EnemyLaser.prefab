@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d385156462ef24b87c4b202b38ce92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserVelocity: 10
+  laserVelocity: 14
   isEnemy: 1
 --- !u!114 &5189475403085699912
 MonoBehaviour:

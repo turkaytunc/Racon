@@ -25,7 +25,14 @@ public class GameManager : MonoBehaviour
 
     public float GetPlayerHealth()
     {
-        return this.playerHealth;
+        if (playerHealth >= 0)
+        {
+            return playerHealth;
+        }
+        else
+        {
+            return 0;
+        }
     }
 
 
