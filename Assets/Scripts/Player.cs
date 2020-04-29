@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float health;
     [SerializeField] private GameObject explosionPrefab;
+    [Header("Sound Affects")]
     [SerializeField] private AudioClip playerDeathSound;
     [SerializeField] private AudioClip laserSound;
 
@@ -34,14 +35,17 @@ public class Player : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        SetInitialValuesToPrivateFields();
+        PlayerMovementBoundaries();
+        gameManager.SetPlayerHealth(this.health);
+    }
+
+    private void SetInitialValuesToPrivateFields()
+    {
         timeToShoot = 1 / fireRate;
         moveSpeed = 7f;
         laserOffset = .5f;
-        PlayerMovementBoundaries();
-        gameManager.SetPlayerHealth(this.health);
-
     }
-
 
     void Update()
     {
@@ -64,13 +68,17 @@ public class Player : MonoBehaviour
             SetTripleShoot(false);
         }
 
+        Shoot();
+    }
+
+    private void Shoot()
+    {
         if (Input.GetButton("Fire1") && timeToShoot <= 0)
         {
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z);
             if (!isTripleShoot)
             {
                 Instantiate(laserPrefab, laserPosition, Quaternion.identity);
-                
             }
             else
             {
