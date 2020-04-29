@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Fire1") && timeToShoot <= 0)
         {
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z);
+
             if (!isTripleShoot)
             {
                 Instantiate(laserPrefab, laserPosition, Quaternion.identity);
@@ -93,7 +94,7 @@ public class Player : MonoBehaviour
 
     public void SetTripleShoot(bool shot)
     {
-        this.isTripleShoot = shot;
+        isTripleShoot = shot;
         tripleShotDuration = 5f;
     }
 
