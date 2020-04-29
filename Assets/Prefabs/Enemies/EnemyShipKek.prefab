@@ -130,7 +130,8 @@ MonoBehaviour:
   scoreAmount: 100
   explosionPrefab: {fileID: 8967965413062128267, guid: bc7e76b334745ca4db41aeb26ac813b9, type: 3}
   laserPrefab: {fileID: 6582312278785615379, guid: d99286c84aae62c42afb481ebc9bf27f, type: 3}
-  fireRate: 1
+  maximumFireRate: 2
+  minimumFireRate: 0.5
   explosionSound: {fileID: 8300000, guid: 7f9b73081a324b044a7e465be6876108, type: 3}
   powerUpPrefab: {fileID: 2028782144035099813, guid: 9753379b057e3b54a96a41d1072cf833, type: 3}
   powerUpChance: 10

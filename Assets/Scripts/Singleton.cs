@@ -2,7 +2,6 @@
 
 public class Singleton : MonoBehaviour
 {
-
     void Awake()
     {
         if(FindObjectsOfType(GetType()).Length > 1)

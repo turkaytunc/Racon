@@ -8,7 +8,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Shooting Variables")]
     [SerializeField] private GameObject laserPrefab;
-    [SerializeField] private float fireRate = 2f;
+    [SerializeField] [Range(2, 5)] private float maximumFireRate = 2f;
+    [SerializeField] [Range(0.5f, 2)] private float minimumFireRate = 1f;
     [SerializeField] private AudioClip explosionSound;
 
     [Header("Item Drop")]
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
     private void SetInitialValuesToPrivateVariables()
     {
         laserOffset = -1f;
-        setShootTimer = 1 / fireRate;
+        setShootTimer = 1 / maximumFireRate;
     }
 
     private void Update()
@@ -46,6 +47,7 @@ public class Enemy : MonoBehaviour
             Vector3 laserPosition = new Vector3(transform.position.x, transform.position.y + laserOffset, transform.position.z);
             Instantiate(laserPrefab, laserPosition, Quaternion.identity);
             timeToShoot = setShootTimer;
+            setShootTimer = 1 / Random.Range(minimumFireRate,maximumFireRate);
         }
     }
 

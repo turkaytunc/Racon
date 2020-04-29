@@ -99,9 +99,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
-  m_Size: {x: 0.8, y: 0.85}
-  m_Direction: 0
+  m_Offset: {x: -0.0154947145, y: 0.43033528}
+  m_Size: {x: 1.8536382, y: 1.2338502}
+  m_Direction: 1
 --- !u!114 &4070098892273868359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +130,8 @@ MonoBehaviour:
   scoreAmount: 400
   explosionPrefab: {fileID: 8967965413062128267, guid: bc7e76b334745ca4db41aeb26ac813b9, type: 3}
   laserPrefab: {fileID: 6582312278785615379, guid: 892a048e515191546b55bd298d7e0788, type: 3}
-  fireRate: 0.25
+  maximumFireRate: 3.62
+  minimumFireRate: 2
   explosionSound: {fileID: 8300000, guid: 7f9b73081a324b044a7e465be6876108, type: 3}
   powerUpPrefab: {fileID: 2028782144035099813, guid: 9753379b057e3b54a96a41d1072cf833, type: 3}
   powerUpChance: 60

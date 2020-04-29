@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
@@ -9,7 +7,6 @@ public class PowerUp : MonoBehaviour
         if(collision.tag == "PlayerShip")
         {
             collision.transform.GetComponent<Player>().SetTripleShoot(true);
-
             Destroy(gameObject);
         }
     }
