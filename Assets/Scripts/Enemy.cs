@@ -8,8 +8,8 @@ public class Enemy : MonoBehaviour
 
     [Header("Shooting Variables")]
     [SerializeField] private GameObject laserPrefab;
-    [SerializeField] [Range(2, 5)] private float maximumFireRate = 2f;
-    [SerializeField] [Range(0.5f, 2)] private float minimumFireRate = 1f;
+    [SerializeField] [Range(1, 3)] private float maximumFireRate = 2f;
+    [SerializeField] [Range(0.25f, 1)] private float minimumFireRate = 1f;
     [SerializeField] private AudioClip explosionSound;
 
     [Header("Item Drop")]
